@@ -1,0 +1,12 @@
+Settings[Keys.Host] = "knoxdotnet.com";
+Settings[Keys.LinksUseHttps] = true;
+Settings[BlogKeys.Title] = "Knox .NET";
+Settings[BlogKeys.Description] = "Home of the Knox .NET user group.";
+Settings[BlogKeys.Intro] = "Home of the Knox .NET user group."; 
+Settings["MarkdownExtensions"] = "advanced+bootstrap+emojis+smartypants";
+
+Pipelines.Add("AtomFeed",
+    Documents(Blog.Posts),
+    GenerateFeeds().WithAtomPath(_ => "atom.xml"),
+    WriteFiles()
+);
